@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}
+<title>AHTAPOT-PS PORT DÜZENLE</title>
+{% endblock %}
+{% block content %}
+    {% if message %}
+    <b>Mesaj : </b>{{message}}
+    {% endif %}
+    <br/>
+    {% if tcp or udp %}
+    <form method="POST" action="/ps/editalarm/">
+        {% csrf_token %}
+        <h4>TCP</h4>
+        {% for port in tcp %}
+        <input type="checkbox" value="{{port}}" name="list_{{alarm_id}}_tcp_{{port}}"/>{{port}}
+        {% endfor %}
+        <h4>UDP</h4>
+        {% for port in udp %}
+        <input type="checkbox" value="{{port}}" name="list_{{alarm_id}}_udp_{{port}}"/>{{port}}
+        {% endfor %}
+        <br/>
+        <br/>
+        <input type="submit" value="KAYDET" class="btn btn-success"/>
+
+    </form>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,264 @@
+@import "globals";
+
+.dashboard {
+  min-height: 100%;
+
+  @for $i from 1 through 5 {
+    &.columns_#{$i} &-column-wrapper {
+      width: (100% / $i);
+    }
+  }
+
+  &-column {
+    margin-left: 10px;
+    border: 2px dashed transparent;
+    min-height: 100px;
+    border-radius: 4px;
+
+    &-wrapper {
+      float: left;
+      min-width: 200px;
+    }
+
+    &.first {
+      margin-left: 0;
+    }
+
+    &.active {
+      border-color: $content-border2-color;
+    }
+
+    &.hovered { }
+  }
+
+  &-item {
+    background: $background-color;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    @include transition(background $transitions-duration);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.collapsed {
+      background-color: $content-contrast3-background-color;
+    }
+
+    &.ui-sortable-helper {
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    &.placeholder {
+      background-color: $content-selected-background-color;
+    }
+
+    &-header {
+      padding: 0 10px 0 6px;
+
+      &-title {
+        font-size: 11px;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 30px;
+      }
+
+      &-drag {
+        float: right;
+        line-height: 30px !important;
+      }
+
+      &-collapse-button {
+        font-size: 13px;
+        vertical-align: middle;
+        font-weight: bold !important;
+      }
+
+      &-buttons {
+        margin-left: 10px;
+        font-size: 13px;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+
+      &:hover &-buttons {
+        visibility: visible;
+      }
+    }
+
+    &-content {
+      background: $content-background-color;
+      border-radius: 4px;
+      box-shadow: 0 2px 0 0 $content-border2-color;
+      overflow: hidden;
+
+      &.contrast {
+        background: $content-contrast2-background-color;
+        color: $content-contrast2-text-color;
+
+        .loading-indicator {
+          color: $content-contrast2-text-color;
+        }
+      }
+
+      ul:not(.inline) {
+        @extend .clear-list;
+
+        li {
+          border-bottom: 1px solid $content-border-color;
+          font-size: 13px;
+          padding: 8px;
+
+          &.nowrap {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          &.contrast {
+            background: $content-contrast2-background-color;
+            font-size: 12px;
+
+            &, & a, & a:visited, & a:hover {
+              color: $content-contrast2-text-color;
+              text-decoration: none;
+              text-transform: uppercase;
+            }
+          }
+
+          &:last-child {
+            border-bottom: 0;
+          }
+
+          .float-right {
+            float: right;
+            position: relative;
+          }
+
+          .dim {
+            text-transform: lowercase;
+            font-size: 11px;
+            color: $dim-text-color;
+          }
+
+          .warning {
+            color: $error-text-color;
+          }
+        }
+      }
+
+      ul.inline {
+        @extend .clear-list;
+        display: inline-block;
+
+        li {
+          display: inline-block;
+          margin-left: 10px;
+
+          &:first-child {
+            margin-left: 0;
+          }
+
+          .nowrap {
+            white-space: nowrap;
+          }
+        }
+
+        &.bordered li {
+          border-left: 1px solid $content-border2-color;
+          margin-left: 0;
+          padding: 0 10px;
+
+          &:first-child {
+            border-left: 0;
+          }
+        }
+      }
+
+      .padding {
+        padding: 10px;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .big {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .highlight {
+        color: $link-color;
+      }
+
+      .dim {
+        color: $dim-text-color;
+      }
+
+      canvas {
+        .chart {
+          &-fillColor {
+            color: $chart-fillColor;
+          }
+
+          &-strokeColor {
+            color: $chart-strokeColor;
+          }
+
+          &-pointColor {
+            color: $chart-pointColor;
+          }
+
+          &-pointHighlightFill {
+            color: $chart-pointHighlightFill;
+          }
+
+          &-scaleGridLineColor {
+            color: $chart-scaleGridLineColor;
+          }
+
+          &-scaleLineColor {
+            color: $chart-scaleLineColor;
+          }
+
+          &-scaleFontColor {
+            color: $chart-scaleFontColor;
+          }
+        }
+      }
+    }
+
+    &-collapse .icon-arrow-up {
+      display: inline;
+    }
+
+    &-collapse .icon-arrow-down {
+      display: none;
+    }
+
+    &.collapsed &-content {
+      display: none;
+    }
+
+    &.collapsed &-collapse .icon-arrow-up {
+      display: none;
+    }
+
+    &.collapsed &-collapse .icon-arrow-down {
+      display: inline;
+    }
+  }
+}
+
+.add-dashboard {
+  & + .select2 {
+    border-radius: 4px 0 0 4px !important;
+    background-color: $input-background-color;
+  }
+
+  &-link {
+    border-radius: 0 4px 4px 0 !important;
+    padding: 0 10px !important;
+  }
+}

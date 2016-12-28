@@ -1,0 +1,5 @@
+AHTAPOT-PS v1.0.0
+
+- Assetlistler elle ve csv ile yuklenecek sekilde ayarlandi.
+- Olusan Alarmlardaki portlari duzenleyerek secilen portlara izin verilemsi saglandi.
+- Tum filtreleme, arama, ekleme islemi yonetici paneli uzerinden yapilabilir.

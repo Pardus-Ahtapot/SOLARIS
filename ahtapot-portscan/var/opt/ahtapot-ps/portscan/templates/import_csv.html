@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+<title>AHTAPOT-PS CSV YÜKLEME</title>
+{% endblock %}
+{% block content %}
+    {% if message %}
+    <b>Mesaj : </b>{{message}}
+    {% endif %}
+    <br/>
+    <form action="/ps/importcsv/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <br/>
+        <input type="file" name="csv_file" />
+        <br/>
+        <input type="submit" value="YÜKLE" class="btn btn-success"/>
+    </form>
+{% endblock %}

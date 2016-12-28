@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+<title>GİRİŞ YAP</title>
+{% endblock %}
+{% block content %}
+<form action="/auth/authenticate/" method="post">
+{% csrf_token %}
+    <input type="hidden" value="{{next}}" name="next" id="next"/>
+	<table align="center">
+		<tr>
+			<td>Kullanıcı Adı&nbsp&nbsp&nbsp&nbsp</td>
+			<td><input type="text" name="username" id="username"/></td>
+		</tr>
+		<tr>
+			<td><br/>Parola </td>
+			<td><br/><input type="password" name="password" id="password"/></td>
+		</tr>
+		<tr><td></td>
+			<td><br/><input type="submit" value="GİRİŞ YAP" class="btn btn-info" style="float : right;"/>
+			</td>
+		</tr>
+	</table>
+</form>
+{% endblock %}

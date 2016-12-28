@@ -1,0 +1,12 @@
+Source: ahtapot-portscan
+Section: base
+Priority: optional
+Maintainer: Volkan DELIOGLU <volkan.delioglu@pardus.org.tr>, Ugur CIL <ugur.cil@pardus.org.tr>    
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 10.0.0
+Homepage: https://github.com/Pardus-Ahtapot/SOLARIS.git
+
+Package: ahtapot-portscan
+Architecture: all
+Depends: python (>= 2.7), python (<< 2.8) ,django-jet , python-django ,nmap , sqlite3
+Description: ahtapot-portscan deb package.
