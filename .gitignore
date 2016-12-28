@@ -1,0 +1,9 @@
+*.tar.xz
+*.dsc
+*.changes
+*.deb
+*/debian/*.debhelper.log
+*/debian/files
+*/debian/*.substvars
+*/debian/debhelper-build-stamp
+ahtapot-portscan/debian/ahtapot-portscan/
